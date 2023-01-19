@@ -1,64 +1,37 @@
 import './App.css';
-import React, { useState } from 'react';
-
-function App ()
-{
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  var yyyy = today.getFullYear();
-  today = dd + '/' + mm + '/' + yyyy;
-
-
-  const [day, setDay] = useState()
-  const [month, setMonth] = useState()
-  const [year, setYear] = useState()
-  const [dateToday, setDateToday] = useState()
-
-
-  function collectDay (e)
-  {
-    setDay(e.target.value)
-    setDateToday(today)
-  }
-
-  function collectMonth (e)
-  {
-    setMonth(e.target.value)
-
-  }
-
-  function collectYear (e)
-  {
-    setYear(e.target.value)
-
-  }
-
-
-  function calculateWeeksBetween (d1, d2)
-  {
-    return Math.round((d2 - d1) / (7 * 24 * 60 * 60 * 1000));
-  }
-
-  function calculate (d1, d2)
-  {
-    let result = calculateWeeksBetween(new Date(today), new Date(day + month + year))
-    console.log(new Date(today))
-    console.log(day + month + year)
-    console.log(result)
-  }
+import React from 'react';
+import { NavLink, Routes, Route } from 'react-router-dom';
+import Home from './Main';
+import Weeks from './Weeks';
 
 
 
-  return (
-    <div className="App">
-      <p> Please enter your birth date</p>
-      <input type="number" placeholder="dd" onKeyUp={ collectDay }></input>
-      <input type="number" placeholder="mm" onKeyUp={ collectMonth }></input>
-      <input type="number" placeholder="yyyy" onKeyUp={ collectYear }></input>
-      <button onClick={ calculate }>Submit</button>
-    </div >
-  );
-}
+const App = () => (
+  <div className='app'>
+    <h1>Welcome to count life weeks</h1>
+    <Navigation />
+    <Main />
+  </div>
+);
 
-export default App;
+export default App
+
+
+const Navigation = () => (
+  <nav>
+    <ul>
+      <li><NavLink to='/'>Home</NavLink></li>
+      <li><NavLink to='/about'>About</NavLink></li>
+      <li><NavLink to='/contact'>Contact</NavLink></li>
+    </ul>
+  </nav>
+);
+
+
+const Main = () => (
+  <Routes>
+    <Route path='/' element={ <Home /> }></Route>
+    <Route path='/about' element={ <Weeks /> }></Route>
+    {/* <Route path='/contact' component={ Contact }></Route> */ }
+  </Routes>
+);
