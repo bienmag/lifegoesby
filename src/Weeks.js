@@ -2,9 +2,12 @@ import React from "react";
 
 
 
-function Weeks ({ result })
+
+function Weeks ()
 {
-  console.log(result)
+
+
+  // console.log('weeks', MyContext)
 }
 
 export default Weeks

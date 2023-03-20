@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Graph from "./Graph";
 
 
 function Home ()
@@ -49,20 +50,23 @@ function Home ()
 
   }
 
+ 
+
 
 
   return (
-    <div className="App">
+
+    <div className="App" key={ result }>
       <p> Please enter your birth date</p>
       <input type="number" placeholder="mm" onKeyUp={ collectMonth }></input>
       <input type="number" placeholder="dd" onKeyUp={ collectDay }></input>
       <input type="number" placeholder="yyyy" onKeyUp={ collectYear }></input>
       <button onClick={ calculate }>Submit</button>
-      <p>processing....... </p>
-
-      <p> result : { result }</p>
+      <p> result : { result }</p> 
+    <Graph weeks = {result}></Graph>
     </div >
+
   );
 }
 
-export default Home;
+export default Home

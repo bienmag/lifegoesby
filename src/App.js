@@ -1,18 +1,23 @@
 import './App.css';
 import React from 'react';
-import { NavLink, Routes, Route } from 'react-router-dom';
+import { NavLink, Routes, Route, useParams } from 'react-router-dom';
 import Home from './Main';
 import Weeks from './Weeks';
 
 
 
-const App = () => (
-  <div className='app'>
-    <h1>Welcome to count life weeks</h1>
-    <Navigation />
-    <Main />
-  </div>
-);
+function App ()
+{
+  return (
+
+    <div className='app'>
+      <h1>Welcome to count life weeks</h1>
+      <Navigation />
+      <Main />
+    </div>
+
+  )
+};
 
 export default App
 
@@ -24,14 +29,14 @@ const Navigation = () => (
       <li><NavLink to='/about'>About</NavLink></li>
       <li><NavLink to='/contact'>Contact</NavLink></li>
     </ul>
-  </nav>
+  </nav >
 );
 
 
 const Main = () => (
   <Routes>
     <Route path='/' element={ <Home /> }></Route>
-    <Route path='/about' element={ <Weeks /> }></Route>
+    <Route path='about' element={ <Weeks /> }></Route>
     {/* <Route path='/contact' component={ Contact }></Route> */ }
   </Routes>
 );
