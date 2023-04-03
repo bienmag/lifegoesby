@@ -62,7 +62,7 @@ function Home ()
       <input type="number" placeholder="dd" onKeyUp={ collectDay }></input>
       <input type="number" placeholder="yyyy" onKeyUp={ collectYear }></input>
       <button onClick={ calculate }>Submit</button>
-      <p> result : { result }</p> 
+      <p> result : { result } weeks</p> 
     <Graph weeks = {result}></Graph>
     </div >
 

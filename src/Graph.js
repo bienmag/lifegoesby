@@ -1,17 +1,26 @@
-function Graph(weeks) {
-
-  
-
-return (
-  <div>
-   {/* 1 строка - 1 год
-      52 недели в году - 52 кружка
-       */}
-
-🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚🌚
+function Graph({weeks}) {
  
-  </div>
-)
+ 
+ 
+ 
+
+  if (weeks!== 0) {
+    return (
+      <div>
+ 
+    
+      </div>
+    )
+  }
+  else {
+    return (
+      <div>
+       PLEASE ENTER YOUR BIRTH DATE
+      </div>
+    )
+  }
+ 
+
 
 }
 
