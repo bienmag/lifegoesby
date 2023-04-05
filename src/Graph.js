@@ -1,16 +1,17 @@
 function Graph({weeks}) {
  
- 
- // line should be max 52 
-  const line = []
-// if more than 52 -> new line 
+ let max = 5200 
+ const line = []
 
-
- for (let i = weeks; i >= 0 ; i--) {
- line.push("🌚")
+ for (let i = max; i > 0; i--) {
+  line.push("🫥")
  }
  
-
+ line.slice(0, weeks)
+ for (let i = weeks; i > 0 ; i--) {
+ line.unshift("🌚")
+ }
+ 
   if (weeks!== 0) {
     return (
       <div>
@@ -22,7 +23,8 @@ function Graph({weeks}) {
   else {
     return (
       <div>
-       PLEASE ENTER YOUR BIRTH DATE
+        {line}
+       {/* PLEASE ENTER YOUR BIRTH DATE */}
       </div>
     )
   }
