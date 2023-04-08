@@ -1,8 +1,8 @@
 import './App.css';
 import React from 'react';
-import { NavLink, Routes, Route, useParams } from 'react-router-dom';
+import { NavLink, Routes, Route } from 'react-router-dom';
 import Home from './Main';
-import Weeks from './Weeks';
+ 
 
 
 
@@ -11,7 +11,6 @@ function App ()
   return (
 
     <div className='app'>
-      <h1>Welcome to count life weeks</h1>
       <Navigation />
       <Main />
     </div>
@@ -34,7 +33,7 @@ const Navigation = () => (
 const Main = () => (
   <Routes>
     <Route path='/' element={ <Home /> }></Route>
-    <Route path='about' element={ <Weeks /> }></Route>
+    <Route path='about'   ></Route>
     {/* <Route path='/contact' component={ Contact }></Route> */ }
   </Routes>
 );

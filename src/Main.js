@@ -59,14 +59,17 @@ function Home ()
 
     <div className="App" key={ result }>
       {result === 0? <div>
+        <h1>Welcome to count life weeks</h1>
       <p> Please enter your birth date</p>
       <input type="number" placeholder="mm" onKeyUp={ collectMonth }></input>
       <input type="number" placeholder="dd" onKeyUp={ collectDay }></input>
       <input type="number" placeholder="yyyy" onKeyUp={ collectYear }></input>
       <button onClick={ calculate }>Submit</button>
-      <p> result : { result } weeks</p> 
       </div> : 
+      <div>
+      <p> You wasted : { result } weeks</p> 
     <Graph className="graph" weeks = {result}></Graph>
+      </div>
       }
     </div >
 
