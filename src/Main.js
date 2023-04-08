@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Graph from "./Graph";
 
 
+
 function Home ()
 {
 
@@ -57,13 +58,16 @@ function Home ()
   return (
 
     <div className="App" key={ result }>
+      {result === 0? <div>
       <p> Please enter your birth date</p>
       <input type="number" placeholder="mm" onKeyUp={ collectMonth }></input>
       <input type="number" placeholder="dd" onKeyUp={ collectDay }></input>
       <input type="number" placeholder="yyyy" onKeyUp={ collectYear }></input>
       <button onClick={ calculate }>Submit</button>
       <p> result : { result } weeks</p> 
+      </div> : 
     <Graph className="graph" weeks = {result}></Graph>
+      }
     </div >
 
   );
