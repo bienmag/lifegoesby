@@ -16,15 +16,13 @@ function Graph({weeks}) {
     return (
       <div>
  {line}
-    
       </div>
     )
   }
   else {
     return (
       <div>
-        {line}
-       {/* PLEASE ENTER YOUR BIRTH DATE */}
+       PLEASE ENTER YOUR BIRTH DATE
       </div>
     )
   }
