@@ -1,26 +1,28 @@
-import { useState } from "react";
+function Template({ weeks }) {
+  const totalWeeks = 5200;
+  const template = [];
+  const GrayBox = <div className="w-2 h-2 bg-gray-300 m-0.5" />;
+  const RedBox = <div className="w-2 h-2 bg-red-600 m-0.5" />;
 
-function Template ({weeks}) {
- 
+  const boxesPerLine = 52;
+  const numLines = Math.ceil(totalWeeks / boxesPerLine);
 
-let totalWeeks = 5200;
-let template = []
-let GrayBox  =  <div className="w-2 h-2 bg-gray-300 m-0.5" />;
-let RedBox = <div className="w-2 h-2 bg-red-800 m-0.5" />;
-
-for (let i = 0; i < totalWeeks; i++) {
-  if (weeks && i < weeks) {
-    template.push(RedBox);
-  } else {
-    template.push(GrayBox);
+  for (let line = 0; line < numLines; line++) {
+    const lineTemplate = [];
+    for (let i = 0; i < boxesPerLine; i++) {
+      const weekIndex = line * boxesPerLine + i;
+      if (weekIndex < totalWeeks) {
+        if (weeks && weekIndex < weeks) {
+          lineTemplate.push(RedBox);
+        } else {
+          lineTemplate.push(GrayBox);
+        }
+      }
+    }
+    template.push(<div key={line} className="flex justify-center">{lineTemplate}</div>);
   }
-}
-  return (
 
-    <div className="flex flex-wrap w-1/2" >
-    {template}
-  </div>
-  
-  );
+  return <div>{template}</div>;
 }
-export default Template
+
+export default Template;
