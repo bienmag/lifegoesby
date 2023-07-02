@@ -1,34 +1,27 @@
-function Graph({weeks}) {
- 
- let max = 5200 
- const line = []
+// import React from 'react';
 
- for (let i = max; i > 0; i--) {
-  line.push("🫥")
- }
- 
- line.slice(0, weeks)
- for (let i = weeks; i > 0 ; i--) {
- line.unshift("🌚")
- }
- 
-  if (weeks!== 0) {
-    return (
-      <div>
- {line}
-      </div>
-    )
-  }
-  else {
-    return (
-      <div>
-       PLEASE ENTER YOUR BIRTH DATE
-      </div>
-    )
-  }
- 
+// function GrayBox() {
+//   return <div className="w-4 h-4 bg-gray-300 m-2" />;
+// }
 
+// function RedBox() {
+//   return <div className="w-4 h-4 bg-red-800 m-2" />;
+// }
 
-}
+// function Graph({ weeks }) {
+//   const max = 5200;
+//   const line = [];
 
-export default Graph
+//   for (let i = 0; i < max; i++) {
+//     line.push(<GrayBox key={i} />);
+//   }
+
+ 
+//   return (
+//     <div className="flex">
+//       {weeks !== 0 ? line : 'PLEASE ENTER YOUR BIRTH DATE'}
+//     </div>
+//   );
+// }
+
+// export default Graph;
