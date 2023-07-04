@@ -3,7 +3,7 @@ import arrow from "./images/right-arrow.png";
 function Template({ weeks }) {
   const totalWeeks = 5200;
   const template = [];
-  const GrayBox = <div className="w-2 h-2 bg-gray-300 m-0.5" />;
+  const GrayBox = <div className="w-2 h-2  border-2 border-gray-300 m-0.5" />;
   const RedBox = <div className="w-2 h-2 bg-red-600 m-0.5" />;
 
   const boxesPerLine = 52;

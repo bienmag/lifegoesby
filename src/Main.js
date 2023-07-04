@@ -3,11 +3,13 @@ import Template from "./Template";
 import rightArrow from "./images/right-arrow.png";
 
 function Home() {
+  const [mode, setMode] = useState("weeks");
+
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, "0");
   var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
   var yyyy = today.getFullYear();
-  today = '"' + mm + "/" + dd + "/" + yyyy + '"';
+  today = mm + "/" + dd + "/" + yyyy;
 
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
@@ -38,6 +40,26 @@ function Home() {
 
   return (
     <div className="flex flex-col justify-center mb-12" key={result}>
+      <div className="flex justify-center py-4">
+        <button
+          onClick={() => setMode("weeks")}
+          className="border-yellow-500 border-2 w-24 mx-2"
+        >
+          week
+        </button>
+        <button
+          onClick={() => setMode("months")}
+          className="border-yellow-500 border-2 w-24 mx-2"
+        >
+          months
+        </button>
+        <button
+          onClick={() => setMode("years")}
+          className="border-yellow-500 border-2 w-24 mx-2"
+        >
+          years
+        </button>
+      </div>
       <div>
         <p className="text-center py-2"> Please enter your birth date</p>
         <form className="text-center py-2" onSubmit={calculate}>
@@ -63,7 +85,7 @@ function Home() {
             <option value="12">December</option>
           </select>
           <input
-            className="w-40 border-2 border-gray-400 mr-2 px-2"
+            className="w-40 border-2  border-gray-400 mr-2 px-2"
             type="number"
             placeholder="dd"
             value={day}
@@ -84,27 +106,32 @@ function Home() {
       <div>
         <p className="text-center py-2"> You wasted: {result} weeks</p>
       </div>
-
-      <div className="flex flex-col items-center">
-        <div className="w-[600px] flex h-6 mr-6 my-2 ">
-          <h1> Week of the Year</h1>
-          <img className="pl-8 w-20" src={rightArrow} alt="Right arrow" />
+      {mode === "weeks" ? (
+        <div>
+          <div className="flex flex-col items-center">
+            <div className="w-[600px] flex h-6 mr-6 my-2 ">
+              <h1> Week of the Year</h1>
+              <img className="pl-8 w-20" src={rightArrow} alt="Right arrow" />
+            </div>
+            <div className="w-[596px] flex justify-between mr-6 text-xs">
+              <p>1</p>
+              <p>5</p>
+              <p>10</p>
+              <p>15</p>
+              <p>20</p>
+              <p>25</p>
+              <p>30</p>
+              <p>35</p>
+              <p>40</p>
+              <p>45</p>
+              <p>50</p>
+            </div>
+          </div>
+          <Template weeks={result} className="flex"></Template>
         </div>
-        <div className="w-[596px] flex justify-between mr-6 text-xs">
-          <p>1</p>
-          <p>5</p>
-          <p>10</p>
-          <p>15</p>
-          <p>20</p>
-          <p>25</p>
-          <p>30</p>
-          <p>35</p>
-          <p>40</p>
-          <p>45</p>
-          <p>50</p>
-        </div>
-      </div>
-      <Template weeks={result} className="flex"></Template>
+      ) : (
+        <div>bye</div>
+      )}
     </div>
   );
 }
