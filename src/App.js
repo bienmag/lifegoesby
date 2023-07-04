@@ -1,24 +1,13 @@
-import './App.css';
-import React from 'react';
-import Home from './Main';
- 
+import "./App.css";
+import React from "react";
+import Home from "./Main";
 
-
-
-function App ()
-{
+function App() {
   return (
-    <div >
+    <div>
       <Home />
     </div>
+  );
+}
 
-  )
-};
-
-export default App
-
-
- 
-
-
- 
+export default App;

@@ -1,3 +1,5 @@
+import arrow from "./images/right-arrow.png";
+
 function Template({ weeks }) {
   const totalWeeks = 5200;
   const template = [];
@@ -19,10 +21,45 @@ function Template({ weeks }) {
         }
       }
     }
-    template.push(<div key={line} className="flex justify-center">{lineTemplate}</div>);
+    template.push(
+      <div key={line} className="flex justify-center mr-14">
+        {lineTemplate}
+      </div>
+    );
   }
 
-  return <div>{template}</div>;
+  return (
+    <div>
+      <div className="flex justify-center">
+        <div className="">
+          <h1 className="-rotate-90 mr-2">Age</h1>
+          <img src={arrow} alt="arrow" className=" w-8 rotate-90 mt-6" />
+        </div>
+        <div className="mr-1 mt-0.5 mb-1 flex flex-col justify-between text-xs ">
+          <p>0</p>
+          <p>5</p>
+          <p>10</p>
+          <p>15</p>
+          <p>20</p>
+          <p>25</p>
+          <p>30</p>
+          <p>35</p>
+          <p>40</p>
+          <p>45</p>
+          <p>50</p>
+          <p>55</p>
+          <p>60</p>
+          <p>65</p>
+          <p>70</p>
+          <p>75</p>
+          <p>80</p>
+          <p>85</p>
+          <p>90</p>
+        </div>
+        <div className="py-1">{template}</div>
+      </div>
+    </div>
+  );
 }
 
 export default Template;

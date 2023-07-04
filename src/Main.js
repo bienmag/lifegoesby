@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Template from "./Template";
+import rightArrow from "./images/right-arrow.png";
 
 function Home() {
   var today = new Date();
@@ -36,32 +37,72 @@ function Home() {
   }
 
   return (
-    <div className="flex flex-col justify-center" key={result}>
+    <div className="flex flex-col justify-center mb-12" key={result}>
       <div>
         <p className="text-center py-2"> Please enter your birth date</p>
         <form className="text-center py-2" onSubmit={calculate}>
-          <select className="w-40 border-2 border-gray-400 mr-2 px-2" type="number" placeholder="mm" value={month} onChange={collectMonth} >
-          <option value="">Select a month</option>
-          <option value="1">January</option>
-          <option value="2">February</option>
-          <option value="3">March</option>
-          <option value="4">April</option>
-          <option value="5">May</option>
-          <option value="6">June</option>
-          <option value="7">July</option>
-          <option value="8">August</option>
-          <option value="9">September</option>
-          <option value="10">October</option>
-          <option value="11">November</option>
-          <option value="12">December</option>
-            </select>
-          <input className="w-40 border-2 border-gray-400 mr-2 px-2" type="number" placeholder="dd" value={day} onChange={collectDay} />
-          <input className="w-40 border-2 border-gray-400 mr-2 px-2" type="number" placeholder="yyyy" value={year} onChange={collectYear} />
-          <button className="border-2 border-gray-400 mr-3 px-2" type="submit">Submit</button>
+          <select
+            className="w-40 border-2 border-gray-400 mr-2 px-2"
+            type="number"
+            placeholder="mm"
+            value={month}
+            onChange={collectMonth}
+          >
+            <option value="">Select a month</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+          <input
+            className="w-40 border-2 border-gray-400 mr-2 px-2"
+            type="number"
+            placeholder="dd"
+            value={day}
+            onChange={collectDay}
+          />
+          <input
+            className="w-40 border-2 border-gray-400 mr-2 px-2"
+            type="number"
+            placeholder="yyyy"
+            value={year}
+            onChange={collectYear}
+          />
+          <button className="border-2 border-gray-400 mr-3 px-2" type="submit">
+            Submit
+          </button>
         </form>
       </div>
       <div>
         <p className="text-center py-2"> You wasted: {result} weeks</p>
+      </div>
+
+      <div className="flex flex-col items-center">
+        <div className="w-[600px] flex h-6 mr-6 my-2 ">
+          <h1> Week of the Year</h1>
+          <img className="pl-8 w-20" src={rightArrow} alt="Right arrow" />
+        </div>
+        <div className="w-[596px] flex justify-between mr-6 text-xs">
+          <p>1</p>
+          <p>5</p>
+          <p>10</p>
+          <p>15</p>
+          <p>20</p>
+          <p>25</p>
+          <p>30</p>
+          <p>35</p>
+          <p>40</p>
+          <p>45</p>
+          <p>50</p>
+        </div>
       </div>
       <Template weeks={result} className="flex"></Template>
     </div>

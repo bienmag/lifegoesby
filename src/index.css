@@ -1,4 +1,9 @@
-/* 
 @tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
+
+/* @media (min-width: 768px) {
+  .md\:bg-red-500 {
+    background-color: red;
+  }
+} */
