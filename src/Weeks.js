@@ -8,7 +8,7 @@ function Weeks({ weeks }) {
     <div className="m-[1px] w-1 h-1 xl:w-2 xl:h-2 md:w-2 md:h-2 border-2 border-gray-300 xl:m-0.5" />
   );
   const RedBox = (
-    <div className="m-[1px] w-1 h-1 xl:w-2 xl:h-2 md:w-2 md:h-2 bg-red-600 xl:m-0.5" />
+    <div className="m-[1px] w-1 h-1 xl:w-2 xl:h-2 md:w-2 md:h-2 bg-amber-500 xl:m-0.5" />
   );
 
   const boxesPerLine = 52;
@@ -27,20 +27,20 @@ function Weeks({ weeks }) {
       }
     }
     templateWeeks.push(
-      <div key={line} className=" flex ">
+      <div key={line} className=" flex  ">
         {lineTemplate}
       </div>
     );
   }
 
   return (
-    <div className="">
+    <div className="mr-4">
       <div className=" flex flex-col ml-12 sm:ml-11 md:ml-[40px] xl:ml-[60px] items-center">
-        <div className=" w-[302px] sm:w-[300px] md:w-[500px] xl:w-[624px] flex h-6 xl:mr-2 my-2 ">
-          <h1> Week of the Year</h1>
+        <div className=" w-[302px] sm:w-[300px] md:w-[500px] xl:w-[624px] flex h-6 xl:mr-2 mt-2 ">
+          <h1 className="text-amber-900"> Week of the Year</h1>
           <img className="pl-8 w-20" src={rightArrow} alt="Right arrow" />
         </div>
-        <div className=" w-[302px] sm:w-[300px] md:w-[500px]  xl:w-[624px] flex justify-between xl:pr-6 text-xs">
+        <div className=" w-[302px] sm:w-[300px] md:w-[500px]  xl:w-[624px] flex justify-between xl:pr-8 -ml-2 text-[10px] text-amber-900">
           <p>1</p>
           <p>5</p>
           <p>10</p>
@@ -56,10 +56,10 @@ function Weeks({ weeks }) {
       </div>
       <div className="flex justify-center    ">
         <div className="">
-          <h1 className="-rotate-90 mr-2">Age</h1>
+          <h1 className="-rotate-90  text-amber-900">Age</h1>
           <img src={arrow} alt="arrow" className=" w-8 rotate-90 mt-6" />
         </div>
-        <div className="mr-1 mt-0.5 mb-1 flex flex-col justify-between text-xs ">
+        <div className="mr-0.5 -mt-1 -mb-1 flex flex-col justify-between text-[10px] text-amber-900  ">
           <p>0</p>
           <p>5</p>
           <p>10</p>
@@ -80,7 +80,7 @@ function Weeks({ weeks }) {
           <p>85</p>
           <p>90</p>
         </div>
-        <div className="py-1">{templateWeeks}</div>
+        <div className="">{templateWeeks}</div>
       </div>
     </div>
   );
