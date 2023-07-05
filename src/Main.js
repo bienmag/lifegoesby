@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import Template from "./Template";
+import Weeks from "./Weeks";
 import rightArrow from "./images/right-arrow.png";
+import Months from "./Months";
+import Years from "./Years";
 
 function Home() {
   const [mode, setMode] = useState("weeks");
@@ -14,7 +16,7 @@ function Home() {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
-  const [result, setResult] = useState(0);
+  const [result, setResult] = useState({ weeks: 0, months: 0, years: 0 });
 
   function collectDay(e) {
     setDay(e.target.value);
@@ -28,18 +30,23 @@ function Home() {
     setYear(e.target.value);
   }
 
-  function calculateWeeksBetween(d1, d2) {
-    return Math.round((d2 - d1) / (7 * 24 * 60 * 60 * 1000));
-  }
-
   function calculate(e) {
     e.preventDefault();
-    let birhdate = '"' + month + "/" + day + "/" + year + '"';
-    setResult(calculateWeeksBetween(new Date(birhdate), new Date(today)));
+    const birthdate = new Date(year, month - 1, day);
+
+    const timeDiff = new Date() - birthdate;
+
+    const weeks = Math.round(timeDiff / (7 * 24 * 60 * 60 * 1000));
+
+    const months = Math.round(timeDiff / (30 * 24 * 60 * 60 * 1000));
+
+    const years = Math.round(timeDiff / (365 * 24 * 60 * 60 * 1000));
+
+    setResult({ weeks, months, years });
   }
 
   return (
-    <div className="flex flex-col justify-center mb-12" key={result}>
+    <div className="flex flex-col justify-center mb-12 " key={result}>
       <div className="flex justify-center py-4">
         <button
           onClick={() => setMode("weeks")}
@@ -104,16 +111,18 @@ function Home() {
         </form>
       </div>
       <div>
-        <p className="text-center py-2"> You wasted: {result} weeks</p>
+        <p className="text-center py-2"> You wasted: {result.weeks} weeks</p>
+        <p className="text-center py-2"> You wasted: {result.months} months</p>
+        <p className="text-center py-2"> You wasted: {result.years} years</p>
       </div>
       {mode === "weeks" ? (
         <div>
           <div className="flex flex-col items-center">
-            <div className="w-[600px] flex h-6 mr-6 my-2 ">
+            <div className="xl:w-[600px] md:w-[600px] flex h-6 mr-6 my-2 ">
               <h1> Week of the Year</h1>
               <img className="pl-8 w-20" src={rightArrow} alt="Right arrow" />
             </div>
-            <div className="w-[596px] flex justify-between mr-6 text-xs">
+            <div className="xl:w-[596px]  md:w-[600px] flex justify-between mr-6 text-xs">
               <p>1</p>
               <p>5</p>
               <p>10</p>
@@ -127,10 +136,12 @@ function Home() {
               <p>50</p>
             </div>
           </div>
-          <Template weeks={result} className="flex"></Template>
+          <Weeks weeks={result.weeks} />
         </div>
+      ) : mode === "months" ? (
+        <Months months={result.months} />
       ) : (
-        <div>bye</div>
+        <Years years={result.years} />
       )}
     </div>
   );

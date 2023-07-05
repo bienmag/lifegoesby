@@ -1,8 +1,8 @@
 import arrow from "./images/right-arrow.png";
 
-function Template({ weeks }) {
+function Weeks({ weeks }) {
   const totalWeeks = 5200;
-  const template = [];
+  const templateWeeks = [];
   const GrayBox = <div className="w-2 h-2  border-2 border-gray-300 m-0.5" />;
   const RedBox = <div className="w-2 h-2 bg-red-600 m-0.5" />;
 
@@ -21,8 +21,8 @@ function Template({ weeks }) {
         }
       }
     }
-    template.push(
-      <div key={line} className="flex justify-center mr-14">
+    templateWeeks.push(
+      <div key={line} className=" flex mr-14 ">
         {lineTemplate}
       </div>
     );
@@ -56,10 +56,10 @@ function Template({ weeks }) {
           <p>85</p>
           <p>90</p>
         </div>
-        <div className="py-1">{template}</div>
+        <div className="py-1">{templateWeeks}</div>
       </div>
     </div>
   );
 }
 
-export default Template;
+export default Weeks;
