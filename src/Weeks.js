@@ -3,8 +3,12 @@ import arrow from "./images/right-arrow.png";
 function Weeks({ weeks }) {
   const totalWeeks = 5200;
   const templateWeeks = [];
-  const GrayBox = <div className="w-2 h-2  border-2 border-gray-300 m-0.5" />;
-  const RedBox = <div className="w-2 h-2 bg-red-600 m-0.5" />;
+  const GrayBox = (
+    <div className="m-[1px] w-1 h-1 xl:w-2 xl:h-2  border-2 border-gray-300 xl:m-0.5" />
+  );
+  const RedBox = (
+    <div className="m-[1px] w-1 h-1 xl:w-2 xl:h-2 bg-red-600 xl:m-0.5" />
+  );
 
   const boxesPerLine = 52;
   const numLines = Math.ceil(totalWeeks / boxesPerLine);
@@ -22,15 +26,15 @@ function Weeks({ weeks }) {
       }
     }
     templateWeeks.push(
-      <div key={line} className=" flex mr-14 ">
+      <div key={line} className=" flex max-w-xs">
         {lineTemplate}
       </div>
     );
   }
 
   return (
-    <div>
-      <div className="flex justify-center">
+    <div className="flex">
+      <div className="flex ">
         <div className="">
           <h1 className="-rotate-90 mr-2">Age</h1>
           <img src={arrow} alt="arrow" className=" w-8 rotate-90 mt-6" />
@@ -56,8 +60,8 @@ function Weeks({ weeks }) {
           <p>85</p>
           <p>90</p>
         </div>
-        <div className="py-1">{templateWeeks}</div>
       </div>
+      <div className="py-1">{templateWeeks}</div>
     </div>
   );
 }

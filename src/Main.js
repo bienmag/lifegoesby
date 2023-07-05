@@ -117,12 +117,12 @@ function Home() {
       </div>
       {mode === "weeks" ? (
         <div>
-          <div className="flex flex-col items-center">
-            <div className="xl:w-[600px] md:w-[600px] flex h-6 mr-6 my-2 ">
+          <div className="xl:ml-14 ml-5 flex flex-col items-center">
+            <div className="w-[300px] xl:w-[600px] md:w-[600px] flex h-6 mr-6 my-2 ">
               <h1> Week of the Year</h1>
               <img className="pl-8 w-20" src={rightArrow} alt="Right arrow" />
             </div>
-            <div className="xl:w-[596px]  md:w-[600px] flex justify-between mr-6 text-xs">
+            <div className="w-[300px] xl:w-[596px]  md:w-[600px] flex justify-between mr-6 text-xs">
               <p>1</p>
               <p>5</p>
               <p>10</p>
@@ -136,7 +136,9 @@ function Home() {
               <p>50</p>
             </div>
           </div>
-          <Weeks weeks={result.weeks} />
+          <div>
+            <Weeks weeks={result.weeks} />
+          </div>
         </div>
       ) : mode === "months" ? (
         <Months months={result.months} />
