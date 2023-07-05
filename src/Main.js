@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Weeks from "./Weeks";
-import rightArrow from "./images/right-arrow.png";
 import Months from "./Months";
 import Years from "./Years";
 
@@ -117,25 +116,6 @@ function Home() {
       </div>
       {mode === "weeks" ? (
         <div>
-          <div className="xl:ml-14 ml-5 flex flex-col items-center">
-            <div className="w-[300px] xl:w-[600px] md:w-[600px] flex h-6 mr-6 my-2 ">
-              <h1> Week of the Year</h1>
-              <img className="pl-8 w-20" src={rightArrow} alt="Right arrow" />
-            </div>
-            <div className="w-[300px] xl:w-[596px]  md:w-[600px] flex justify-between mr-6 text-xs">
-              <p>1</p>
-              <p>5</p>
-              <p>10</p>
-              <p>15</p>
-              <p>20</p>
-              <p>25</p>
-              <p>30</p>
-              <p>35</p>
-              <p>40</p>
-              <p>45</p>
-              <p>50</p>
-            </div>
-          </div>
           <div>
             <Weeks weeks={result.weeks} />
           </div>
