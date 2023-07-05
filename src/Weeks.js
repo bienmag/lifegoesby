@@ -35,12 +35,12 @@ function Weeks({ weeks }) {
 
   return (
     <div className=" ">
-      <div className="xl:ml-14 md:ml-[64px]  ml-[60px] flex flex-col items-center">
-        <div className="w-[300px] xl:w-[600px] md:w-[510px] flex h-6 mr-6 my-2 ">
+      <div className=" flex flex-col ml-12 sm:ml-11 md:ml-[40px] xl:ml-[60px] items-center">
+        <div className=" w-[302px] sm:w-[300px] md:w-[500px] xl:w-[624px] flex h-6 xl:mr-2 my-2 ">
           <h1> Week of the Year</h1>
           <img className="pl-8 w-20" src={rightArrow} alt="Right arrow" />
         </div>
-        <div className="w-[300px] xl:w-[596px]  md:w-[500px] flex justify-between mr-6 text-xs">
+        <div className=" w-[302px] sm:w-[300px] md:w-[500px]  xl:w-[624px] flex justify-between xl:pr-6 text-xs">
           <p>1</p>
           <p>5</p>
           <p>10</p>
@@ -54,7 +54,7 @@ function Weeks({ weeks }) {
           <p>50</p>
         </div>
       </div>
-      <div className="flex xl:justify-center md:justify-center ">
+      <div className="flex justify-center ">
         <div className="">
           <h1 className="-rotate-90 mr-2">Age</h1>
           <img src={arrow} alt="arrow" className=" w-8 rotate-90 mt-6" />
