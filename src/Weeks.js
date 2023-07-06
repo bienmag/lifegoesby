@@ -59,25 +59,25 @@ function Weeks({ weeks }) {
           <h1 className="-rotate-90  text-amber-900">Age</h1>
           <img src={arrow} alt="arrow" className=" w-8 rotate-90 mt-6" />
         </div>
-        <div className="mr-0.5 mb-12 flex flex-col  text-[8px] text-amber-900  ">
-          <p className="pb-12">0</p>
-          <p className="pb-12">5</p>
-          <p className="pb-12">10</p>
-          <p className="pb-12">15</p>
-          <p className="pb-12">20</p>
-          <p className="pb-12">25</p>
-          <p className="pb-12">30</p>
-          <p className="pb-12">35</p>
-          <p className="pb-12">40</p>
-          <p className="pb-12">45</p>
-          <p className="pb-12">50</p>
-          <p className="pb-12">55</p>
-          <p className="pb-12">60</p>
-          <p className="pb-12">65</p>
-          <p className="pb-12">70</p>
-          <p className="pb-12">75</p>
-          <p className="pb-12">80</p>
-          <p className="pb-12">85</p>
+        <div className="-mt-0.5 mr-0.5 mb-12 flex flex-col  text-[8px] text-amber-900  ">
+          <p className="pb-4 xl:pb-12">0</p>
+          <p className="pb-5 xl:pb-12">5</p>
+          <p className="pb-4 xl:pb-12">10</p>
+          <p className="pb-5 xl:pb-12">15</p>
+          <p className="pb-4 xl:pb-12">20</p>
+          <p className="pb-5 xl:pb-12">25</p>
+          <p className="pb-4 xl:pb-12">30</p>
+          <p className="pb-5 xl:pb-12">35</p>
+          <p className="pb-4 xl:pb-12">40</p>
+          <p className="pb-5 xl:pb-12">45</p>
+          <p className="pb-4 xl:pb-12">50</p>
+          <p className="pb-5 xl:pb-12">55</p>
+          <p className="pb-4 xl:pb-12">60</p>
+          <p className="pb-5 xl:pb-12">65</p>
+          <p className="pb-4 xl:pb-12">70</p>
+          <p className="pb-5 xl:pb-12">75</p>
+          <p className="pb-4 xl:pb-12">80</p>
+          <p className="pb-5 xl:pb-12">85</p>
         </div>
         <div className="">{templateWeeks}</div>
       </div>
