@@ -2,78 +2,73 @@ import React, { useState } from "react";
 import Weeks from "./Weeks";
 import Months from "./Months";
 import Years from "./Years";
+import ModeButton from "./ModeButton";
 
 function Home() {
   const [mode, setMode] = useState("weeks");
-
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, "0");
-  var mm = String(today.getMonth() + 1).padStart(2, "0");
-  var yyyy = today.getFullYear();
-  today = mm + "/" + dd + "/" + yyyy;
-
   const [birthDate, setBirthDate] = useState({ month: "", day: "", year: "" });
-  const [result, setResult] = useState({ weeks: 0, months: 0, years: 0 });
+  const [timePassed, setTimePassed] = useState({
+    weeks: 0,
+    months: 0,
+    years: 0,
+  });
 
-  function calculate(e) {
+  function calculatetimePassed(e) {
     e.preventDefault();
+
+    const { year, month, day } = birthDate;
     if (
-      birthDate.year > 1950 &&
-      birthDate.year < 2023 &&
-      birthDate.day > 1 &&
-      birthDate.day < 31 &&
-      birthDate.year !== "" &&
-      birthDate.day !== "" &&
-      birthDate.month !== ""
+      year > 1950 &&
+      year < 2023 &&
+      day > 1 &&
+      day < 31 &&
+      year !== "" &&
+      day !== "" &&
+      month !== ""
     ) {
-      const birthdate = new Date(
-        birthDate.year,
-        birthDate.month - 1,
-        birthDate.day
-      );
+      const birthdate = new Date(year, month - 1, day);
 
       const timeDiff = new Date() - birthdate;
 
-      const weeks = Math.round(timeDiff / (7 * 24 * 60 * 60 * 1000));
+      const weeksPassed = Math.round(timeDiff / (7 * 24 * 60 * 60 * 1000));
 
-      const months = Math.round(timeDiff / (30 * 24 * 60 * 60 * 1000));
+      const monthsPassed = Math.round(timeDiff / (30 * 24 * 60 * 60 * 1000));
 
-      const years = Math.floor(timeDiff / (365 * 24 * 60 * 60 * 1000));
+      const yearsPassed = Math.floor(timeDiff / (365 * 24 * 60 * 60 * 1000));
 
-      setResult({ weeks, months, years });
+      setTimePassed({ weeksPassed, monthsPassed, yearsPassed });
     }
   }
 
   return (
-    <div className="flex flex-col justify-center mb-12  " key={result}>
+    <div className="flex flex-col justify-center mb-12  " key={timePassed}>
       <div className="flex justify-center py-4">
-        <button
-          onClick={() => setMode("weeks")}
-          className="border-yellow-500 border-2 w-24 mx-2 rounded-full bg-amber-500 text-white text-xl"
-        >
-          week
-        </button>
-        <button
-          onClick={() => setMode("months")}
-          className="border-yellow-500 border-2 w-24 mx-2 rounded-full bg-amber-500 text-white text-xl"
-        >
-          months
-        </button>
-        <button
-          onClick={() => setMode("years")}
-          className="border-yellow-500 border-2 w-24 mx-2 rounded-full bg-amber-500 text-white text-xl"
-        >
-          years
-        </button>
+        <ModeButton
+          mode="weeks"
+          selectedMode={mode}
+          setMode={setMode}
+          label="weeks"
+        />
+        <ModeButton
+          mode="months"
+          selectedMode={mode}
+          setMode={setMode}
+          label="months"
+        />
+        <ModeButton
+          mode="years"
+          selectedMode={mode}
+          setMode={setMode}
+          label="years"
+        />
       </div>
       <div>
         <h1 className="text-center py-2 text-amber-500 text-3xl ">
-          {" "}
           please enter your birth date
         </h1>
         <form
           className="xl:flex justify-center text-center py-2"
-          onSubmit={calculate}
+          onSubmit={calculatetimePassed}
         >
           <div className="flex justify-center text-center">
             <select
@@ -117,7 +112,6 @@ function Home() {
                 setBirthDate({ ...birthDate, day: e.target.value })
               }
             />
-
             <input
               className={`mb-2 w-24 xl:w-40 border-2 bg-amber-500 text-white h-8 rounded-full text-center  mr-2 px-2 ${
                 (birthDate.year !== "" && birthDate.year < 1933) ||
@@ -136,7 +130,7 @@ function Home() {
           </div>
           <button
             className={`xl:border-2  text-white rounded-full  xl:h-8  h-14 w-44 text-xl hover:bg-amber-600 px-6 ${
-              result.weeks !== 0 ? "bg-gray-800" : "bg-amber-500"
+              timePassed.weeks !== 0 ? "bg-gray-800" : "bg-amber-500"
             }`}
             type="submit"
           >
@@ -144,22 +138,28 @@ function Home() {
           </button>
         </form>
       </div>
-      {/* <div>
-        <p className="text-center py-2"> You wasted: {result.weeks} weeks</p>
-        <p className="text-center py-2"> You wasted: {result.months} months</p>
-        <p className="text-center py-2"> You wasted: {result.years} years</p>
-      </div> */}
       {mode === "weeks" ? (
         <div>
           <div>
-            <Weeks weeks={result.weeks} />
+            <Weeks weeks={timePassed.weeksPassed} />
           </div>
         </div>
       ) : mode === "months" ? (
-        <Months months={result.months} />
+        <Months months={timePassed.monthsPassed} />
       ) : (
-        <Years years={result.years} />
+        <Years years={timePassed.yearsPassed} />
       )}
+      <div className="flex justify-center text-amber-800">
+        <p>
+          Inspired by{" "}
+          <a
+            className="text-yellow-600"
+            href="https://waitbutwhy.com/2014/05/life-weeks.html"
+          >
+            Wait but why
+          </a>
+        </p>
+      </div>
     </div>
   );
 }

@@ -79,7 +79,11 @@ function Weeks({ weeks }) {
           <p className="pb-4 xl:pb-12">80</p>
           <p className="pb-5 xl:pb-12">85</p>
         </div>
-        <div className="">{templateWeeks}</div>
+
+        <div className="">
+          {templateWeeks}
+          <p className="flex justify-end text-xs text-amber-900"> 90</p>
+        </div>
       </div>
     </div>
   );

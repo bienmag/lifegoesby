@@ -24,12 +24,11 @@ function Months({ months }) {
     }
     monthsTemplate.push(
       <div key={line} className="flex justify-center">
-        {" "}
         {lineTemplate}
       </div>
     );
   }
 
-  return <div> {monthsTemplate}</div>;
+  return <div className="pt-8"> {monthsTemplate}</div>;
 }
 export default Months;
