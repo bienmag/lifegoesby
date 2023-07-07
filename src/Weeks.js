@@ -45,7 +45,7 @@ function Weeks({ weeks }) {
       )}
       <div className=" flex flex-col ml-12 sm:ml-[40px] md:ml-[40px] xl:ml-[60px] items-center">
         <div className=" w-[302px] sm:w-[500px] md:w-[500px] xl:w-[624px] flex h-6 xl:mr-2 mt-2 ">
-          <h1 className="text-amber-900"> Week of the Year</h1>
+          <h1 className="text-amber-900"> week of the year</h1>
           <img className="pl-8 w-20" src={rightArrow} alt="Right arrow" />
         </div>
         <div className=" w-[302px] sm:w-[500px] md:w-[500px]  xl:w-[624px] flex justify-between xl:pr-8 -ml-2 text-[8px] text-amber-900">
@@ -64,7 +64,7 @@ function Weeks({ weeks }) {
       </div>
       <div className="flex justify-center    ">
         <div className="">
-          <h1 className="-rotate-90  text-amber-900">Age</h1>
+          <h1 className="-rotate-90  text-amber-900">age</h1>
           <img src={arrow} alt="arrow" className=" w-8 rotate-90 mt-6" />
         </div>
         <div className="-mt-0.5 mr-0.5 mb-12 flex flex-col  text-[8px] text-amber-900  ">
@@ -95,12 +95,12 @@ function Weeks({ weeks }) {
       </div>
       <div className="flex justify-center text-amber-800 mb-8  bottom-0 ">
         <p>
-          Inspired by{" "}
+          inspired by{" "}
           <a
             className="text-yellow-600 "
             href="https://waitbutwhy.com/2014/05/life-weeks.html"
           >
-            Wait but why
+            wait but why
           </a>
         </p>
       </div>

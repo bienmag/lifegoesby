@@ -42,12 +42,12 @@ function Months({ months }) {
       {monthsTemplate}
       <div className="flex justify-center text-amber-800 mb-8 mt-12  bottom-0 ">
         <p>
-          Inspired by{" "}
+          inspired by{" "}
           <a
             className="text-yellow-600 "
             href="https://waitbutwhy.com/2014/05/life-weeks.html"
           >
-            Wait but why
+            wait but why
           </a>
         </p>
       </div>

@@ -41,7 +41,7 @@ function Home() {
   }
 
   return (
-    <div className="h-full">
+    <div className="h-full font-mono">
       <div className="flex flex-col justify-center" key={timePassed}>
         <div className="flex justify-center py-4">
           <ModeButton
@@ -73,8 +73,10 @@ function Home() {
           >
             <div className="flex justify-center text-center">
               <select
-                className={`mb-2 appearance-none border-2 bg-amber-500 text-white h-8 rounded-full text-center mr-2 px-2  ${
-                  birthDate.month === "" ? "border border-red-500" : ""
+                className={`w-24 xl:w-40 mb-2 appearance-none border-2 bg-amber-500   text-white h-8 rounded-full text-center mr-2 px-2  ${
+                  birthDate.month === ""
+                    ? "border border-red-500 text-gray-400"
+                    : ""
                 }`}
                 type="number"
                 placeholder="mm"
@@ -83,19 +85,19 @@ function Home() {
                   setBirthDate({ ...birthDate, month: e.target.value })
                 }
               >
-                <option value="">Select a month</option>
-                <option value="1">January</option>
-                <option value="2">February</option>
-                <option value="3">March</option>
-                <option value="4">April</option>
-                <option value="5">May</option>
-                <option value="6">June</option>
-                <option value="7">July</option>
-                <option value="8">August</option>
-                <option value="9">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
+                <option value="">mm</option>
+                <option value="1">january</option>
+                <option value="2">february</option>
+                <option value="3">march</option>
+                <option value="4">april</option>
+                <option value="5">may</option>
+                <option value="6">june</option>
+                <option value="7">july</option>
+                <option value="8">august</option>
+                <option value="9">september</option>
+                <option value="10">october</option>
+                <option value="11">november</option>
+                <option value="12">december</option>
               </select>
 
               <input
@@ -137,7 +139,7 @@ function Home() {
               }`}
               type="submit"
             >
-              Submit
+              submit
             </button>
           </form>
         </div>
