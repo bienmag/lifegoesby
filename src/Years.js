@@ -23,14 +23,14 @@ function Years({ years }) {
       }
     }
     yearsTemplate.push(
-      <div key={line} className="flex justify-center">
+      <div key={line} className=" flex justify-center">
         {" "}
         {lineTemplate}
       </div>
     );
   }
 
-  return <div className="m-6"> {yearsTemplate}</div>;
+  return <div className="m-6 h-screen"> {yearsTemplate}</div>;
 }
 
 export default Years;

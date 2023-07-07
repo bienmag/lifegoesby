@@ -29,6 +29,6 @@ function Months({ months }) {
     );
   }
 
-  return <div className="pt-8"> {monthsTemplate}</div>;
+  return <div className="pt-8 h-screen"> {monthsTemplate}</div>;
 }
 export default Months;
