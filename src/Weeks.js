@@ -35,6 +35,14 @@ function Weeks({ weeks }) {
 
   return (
     <div className="mr-4 ">
+      {weeks ? (
+        <p className="font-bold text-amber-800 text-center mt-4">
+          {" "}
+          you wasted {weeks} weeks
+        </p>
+      ) : (
+        <></>
+      )}
       <div className=" flex flex-col ml-12 sm:ml-[40px] md:ml-[40px] xl:ml-[60px] items-center">
         <div className=" w-[302px] sm:w-[500px] md:w-[500px] xl:w-[624px] flex h-6 xl:mr-2 mt-2 ">
           <h1 className="text-amber-900"> Week of the Year</h1>
@@ -84,6 +92,17 @@ function Weeks({ weeks }) {
           {templateWeeks}
           <p className="flex justify-end text-xs text-amber-900"> 90</p>
         </div>
+      </div>
+      <div className="flex justify-center text-amber-800 mb-8  bottom-0 ">
+        <p>
+          Inspired by{" "}
+          <a
+            className="text-yellow-600 "
+            href="https://waitbutwhy.com/2014/05/life-weeks.html"
+          >
+            Wait but why
+          </a>
+        </p>
       </div>
     </div>
   );

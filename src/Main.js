@@ -153,17 +153,6 @@ function Home() {
           <Years years={timePassed.yearsPassed} />
         )}
       </div>
-      {/* <footer className="flex justify-center text-cen bg-red-300 bottom-0 ">
-        <p>
-          Inspired by
-          <a
-            className="text-yellow-600 "
-            href="https://waitbutwhy.com/2014/05/life-weeks.html"
-          >
-            Wait but why
-          </a>
-        </p>
-      </footer> */}
     </div>
   );
 }
