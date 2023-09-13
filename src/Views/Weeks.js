@@ -1,3 +1,5 @@
+import Footer from "../lib/Footer";
+
 function Weeks({ weeks }) {
   const totalWeeks = 4680;
   const templateWeeks = [];
@@ -120,17 +122,7 @@ function Weeks({ weeks }) {
           <p className="flex justify-end text-xs text-amber-900"> 90</p>
         </div>
       </div>
-      <div className="flex justify-center text-amber-800 mb-8  bottom-0 ">
-        <p>
-          inspired by{" "}
-          <a
-            className="text-yellow-600 "
-            href="https://waitbutwhy.com/2014/05/life-weeks.html"
-          >
-            wait but why
-          </a>
-        </p>
-      </div>
+      <Footer />
     </div>
   );
 }

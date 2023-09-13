@@ -1,3 +1,5 @@
+import Footer from "../lib/Footer";
+
 function Years({ years }) {
   const totalYears = 90;
   const yearsTemplate = [];
@@ -41,17 +43,7 @@ function Years({ years }) {
         <></>
       )}
       {yearsTemplate}
-      <div className=" text-amber-800 flex justify-center mb-8 mt-12  bottom-0 ">
-        <p>
-          inspired by{" "}
-          <a
-            className="text-yellow-600 "
-            href="https://waitbutwhy.com/2014/05/life-weeks.html"
-          >
-            wait but why
-          </a>
-        </p>
-      </div>
+      <Footer className="mt-12" />
     </div>
   );
 }
