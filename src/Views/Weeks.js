@@ -1,27 +1,27 @@
-import Footer from "../lib/Footer";
+import Footer from '../lib/Footer'
 
 function Weeks({ weeks }) {
-  const totalWeeks = 4680;
-  const templateWeeks = [];
+  const totalWeeks = 4680
+  const templateWeeks = []
   const GrayBox = (
     <div className="m-[1px] w-1 h-1 xl:w-2 xl:h-2 md:w-2 md:h-2 sm:w-2 sm:h-2 border-2 border-gray-300 xl:m-0.5" />
-  );
+  )
   const RedBox = (
     <div className="m-[1px] w-1 h-1 xl:w-2 xl:h-2 md:w-2 md:h-2 sm:w-2 sm:h-2  bg-amber-500 xl:m-0.5" />
-  );
+  )
 
-  const boxesPerLine = 52;
-  const numLines = Math.ceil(totalWeeks / boxesPerLine);
+  const boxesPerLine = 52
+  const numLines = Math.ceil(totalWeeks / boxesPerLine)
 
   for (let line = 0; line < numLines; line++) {
-    const lineTemplate = [];
+    const lineTemplate = []
     for (let i = 0; i < boxesPerLine; i++) {
-      const weekIndex = line * boxesPerLine + i;
+      const weekIndex = line * boxesPerLine + i
       if (weekIndex < totalWeeks) {
         if (weeks && weekIndex < weeks) {
-          lineTemplate.push(RedBox);
+          lineTemplate.push(RedBox)
         } else {
-          lineTemplate.push(GrayBox);
+          lineTemplate.push(GrayBox)
         }
       }
     }
@@ -29,14 +29,14 @@ function Weeks({ weeks }) {
       <div key={line} className=" flex  ">
         {lineTemplate}
       </div>
-    );
+    )
   }
 
   return (
     <div className="mr-4 ">
       {weeks ? (
         <p className="font-bold text-amber-800 text-center mt-4">
-          {" "}
+          {' '}
           you wasted {weeks} weeks
         </p>
       ) : (
@@ -124,7 +124,7 @@ function Weeks({ weeks }) {
       </div>
       <Footer />
     </div>
-  );
+  )
 }
 
-export default Weeks;
+export default Weeks
