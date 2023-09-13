@@ -1,6 +1,3 @@
-import arrow from "./images/right-arrow.png";
-import rightArrow from "./images/right-arrow.png";
-
 function Weeks({ weeks }) {
   const totalWeeks = 4680;
   const templateWeeks = [];
@@ -46,7 +43,22 @@ function Weeks({ weeks }) {
       <div className=" flex flex-col ml-12 sm:ml-[40px] md:ml-[40px] xl:ml-[60px] items-center">
         <div className=" w-[302px] sm:w-[500px] md:w-[500px] xl:w-[624px] flex h-6 xl:mr-2 mt-2 ">
           <h1 className="text-amber-900"> week of the year</h1>
-          <img className="pl-8 w-20" src={rightArrow} alt="Right arrow" />
+          <div className="pl-8">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+              />
+            </svg>
+          </div>
         </div>
         <div className=" w-[302px] sm:w-[500px] md:w-[500px]  xl:w-[624px] flex justify-between xl:pr-8 -ml-2 text-[8px] text-amber-900">
           <p>1</p>
@@ -65,7 +77,22 @@ function Weeks({ weeks }) {
       <div className="flex justify-center    ">
         <div className="">
           <h1 className="-rotate-90  text-amber-900">age</h1>
-          <img src={arrow} alt="arrow" className=" w-8 rotate-90 mt-6" />
+          <div className="mt-8 rotate-90">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+              />
+            </svg>
+          </div>
         </div>
         <div className="-mt-0.5 mr-0.5 mb-12 flex flex-col  text-[8px] text-amber-900  ">
           <p className="pb-4 sm:pb-10 xl:pb-12">0</p>
