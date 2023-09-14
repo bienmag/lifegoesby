@@ -72,9 +72,9 @@ function App() {
           >
             <div className="flex justify-center text-center">
               <select
-                className={`w-24 xl:w-40 mb-2 appearance-none border-2 bg-amber-500   text-white h-8 rounded-full text-center mr-2 px-2  ${
+                className={`w-24 xl:w-40 mb-2 appearance-none outline-amber-800  hover:bg-amber-600 border-2 bg-amber-500   text-white h-8 rounded-full text-center mr-2 px-2  ${
                   birthDate.month === ''
-                    ? 'border border-red-500 text-gray-400'
+                    ? 'border border-red-500 text-gray-300'
                     : ''
                 }`}
                 type="number"
@@ -92,7 +92,7 @@ function App() {
               </select>
 
               <input
-                className={`mb-2 w-24 xl:w-40 border-2 bg-amber-500 text-white h-8 rounded-full text-center mr-2 px-2 ${
+                className={`mb-2 w-24 xl:w-40 border-2 outline-amber-800 placeholder:text-gray-300 hover:bg-amber-600 bg-amber-500 text-white h-8 rounded-full text-center mr-2 px-2 ${
                   birthDate.day === '' ||
                   birthDate.day < 1 ||
                   birthDate.day > 31
@@ -108,7 +108,7 @@ function App() {
                 }
               />
               <input
-                className={`mb-2 w-24 xl:w-40 border-2 bg-amber-500 text-white h-8 rounded-full text-center  mr-2 px-2 ${
+                className={`mb-2 w-24 xl:w-40 border-2 bg-amber-500 placeholder:text-gray-300 hover:bg-amber-600  outline-amber-800 text-white h-8 rounded-full text-center  mr-2 px-2 ${
                   birthDate.year === '' ||
                   birthDate.year < 1933 ||
                   birthDate.year > 2023
@@ -125,9 +125,7 @@ function App() {
               />
             </div>
             <button
-              className={`xl:border-2  text-white rounded-full  xl:h-8  h-14 w-44 text-xl hover:bg-amber-600 px-6 ${
-                timePassed.weeks !== 0 ? 'bg-gray-800' : 'bg-amber-500'
-              }`}
+              className={`xl:border-2  text-white rounded-full  xl:h-8  h-14 w-44 text-xl hover:bg-amber-600 px-6 bg-amber-500`}
               type="submit"
             >
               submit
