@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import Weeks from './Views/Weeks'
-import Months from './Views/Months'
-import Years from './Views/Years'
 import ModeButton from './lib/ModeButton'
 import { monthOptions } from './lib/helpers'
+import { renderModeComponent } from './lib/RenderMode'
 
 function App() {
   const [mode, setMode] = useState('weeks')
@@ -38,19 +36,6 @@ function App() {
       const yearsPassed = Math.floor(timeDiff / (365 * 24 * 60 * 60 * 1000))
 
       setTimePassed({ weeksPassed, monthsPassed, yearsPassed })
-    }
-  }
-
-  const renderModeComponent = () => {
-    switch (mode) {
-      case 'weeks':
-        return <Weeks weeks={timePassed.weeksPassed} />
-      case 'months':
-        return <Months months={timePassed.monthsPassed} />
-      case 'years':
-        return <Years years={timePassed.yearsPassed} />
-      default:
-        return null
     }
   }
 
@@ -149,7 +134,7 @@ function App() {
             </button>
           </form>
         </div>
-        {renderModeComponent()}
+        {renderModeComponent(mode, timePassed)}
       </div>
     </div>
   )
