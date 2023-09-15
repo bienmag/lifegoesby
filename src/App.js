@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ModeButton from './lib/ModeButton'
-import { monthOptions } from './lib/helpers'
+import { calculate, monthOptions } from './lib/helpers'
 import { renderModeComponent } from './lib/RenderMode'
 import { validateBirthdate } from './lib/Validator'
 
@@ -27,12 +27,7 @@ function App() {
 
     const timeDiff = new Date() - birthdate
 
-    const weeksPassed = Math.round(timeDiff / (7 * 24 * 60 * 60 * 1000))
-
-    const monthsPassed = Math.round(timeDiff / (30 * 24 * 60 * 60 * 1000))
-
-    const yearsPassed = Math.floor(timeDiff / (365 * 24 * 60 * 60 * 1000))
-
+    const { weeksPassed, monthsPassed, yearsPassed } = calculate(timeDiff)
     setTimePassed({ weeksPassed, monthsPassed, yearsPassed })
   }
 

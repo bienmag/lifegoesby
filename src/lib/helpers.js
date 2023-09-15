@@ -13,3 +13,13 @@ export const monthOptions = [
   { value: '11', label: 'november' },
   { value: '12', label: 'december' },
 ]
+
+export function calculate(timeDiff) {
+  const weeksPassed = Math.round(timeDiff / (7 * 24 * 60 * 60 * 1000))
+
+  const monthsPassed = Math.round(timeDiff / (30 * 24 * 60 * 60 * 1000))
+
+  const yearsPassed = Math.floor(timeDiff / (365 * 24 * 60 * 60 * 1000))
+
+  return { weeksPassed, monthsPassed, yearsPassed }
+}
