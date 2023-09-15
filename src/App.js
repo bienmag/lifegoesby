@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ModeButton from './lib/ModeButton'
 import { monthOptions } from './lib/helpers'
 import { renderModeComponent } from './lib/RenderMode'
+import { validateBirthdate } from './lib/Validator'
 
 function App() {
   const [mode, setMode] = useState('weeks')
@@ -14,29 +15,25 @@ function App() {
 
   function calculatetimePassed(e) {
     e.preventDefault()
+    const errors = validateBirthdate(birthDate)
+    if (errors.length) {
+      //print the errors to the user
+      console.log('errors', errors)
+      return
+    }
 
     const { year, month, day } = birthDate
-    if (
-      year > 1950 &&
-      year < 2023 &&
-      day > 1 &&
-      day < 31 &&
-      year !== '' &&
-      day !== '' &&
-      month !== ''
-    ) {
-      const birthdate = new Date(year, month - 1, day)
+    const birthdate = new Date(year, month - 1, day)
 
-      const timeDiff = new Date() - birthdate
+    const timeDiff = new Date() - birthdate
 
-      const weeksPassed = Math.round(timeDiff / (7 * 24 * 60 * 60 * 1000))
+    const weeksPassed = Math.round(timeDiff / (7 * 24 * 60 * 60 * 1000))
 
-      const monthsPassed = Math.round(timeDiff / (30 * 24 * 60 * 60 * 1000))
+    const monthsPassed = Math.round(timeDiff / (30 * 24 * 60 * 60 * 1000))
 
-      const yearsPassed = Math.floor(timeDiff / (365 * 24 * 60 * 60 * 1000))
+    const yearsPassed = Math.floor(timeDiff / (365 * 24 * 60 * 60 * 1000))
 
-      setTimePassed({ weeksPassed, monthsPassed, yearsPassed })
-    }
+    setTimePassed({ weeksPassed, monthsPassed, yearsPassed })
   }
 
   return (
