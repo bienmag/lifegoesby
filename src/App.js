@@ -65,7 +65,11 @@ function App() {
                 }
               >
                 {monthOptions.map((month) => (
-                  <option key={month.value} value={month.value}>
+                  <option
+                    key={month.value}
+                    value={month.value}
+                    className="text-center"
+                  >
                     {month.label}
                   </option>
                 ))}
