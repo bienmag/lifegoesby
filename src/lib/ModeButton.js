@@ -1,11 +1,8 @@
 function ModeButton({ mode, selectedMode, setMode, label }) {
-  const isClicked = mode === selectedMode
   return (
     <button
       onClick={() => setMode(mode)}
-      className={`border-2 w-24 mx-2 rounded-full hover:bg-amber-600 bg-amber-500  text-white text-xl ${
-        isClicked ? ' border-amber-800' : ''
-      }`}
+      className={` w-24 mx-2 rounded-full shadow-xl hover:bg-amber-600  bg-[#D7A147] p-1  text-white text-sm`}
     >
       {label}
     </button>

@@ -4,6 +4,19 @@ import { calculate, monthOptions } from './lib/helpers'
 import { renderModeComponent } from './lib/RenderMode'
 import { validateBirthdate } from './lib/Validator'
 
+function Input({ onChange, value, placeholder, birthDate }) {
+  return (
+    <input
+      className={`mb-2 w-24 xl:w-40  outline-none placeholder:text-amber-500  bg-[#FCE5C2] text-amber-500 h-8 rounded-full text-center mr-2 px-2 `}
+      type="text"
+      inputMode="numeric"
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+    />
+  )
+}
+
 function App() {
   const [mode, setMode] = useState('weeks')
   const [birthDate, setBirthDate] = useState({ month: '', day: '', year: '' })
@@ -32,43 +45,19 @@ function App() {
   }
 
   return (
-    <div className="h-full font-mono">
-      <div className="flex flex-col justify-center" key={timePassed}>
-        <div className="flex justify-center py-4">
-          <ModeButton
-            mode="weeks"
-            selectedMode={mode}
-            setMode={setMode}
-            label="weeks"
-          />
-          <ModeButton
-            mode="months"
-            selectedMode={mode}
-            setMode={setMode}
-            label="months"
-          />
-          <ModeButton
-            mode="years"
-            selectedMode={mode}
-            setMode={setMode}
-            label="years"
-          />
-        </div>
+    <div className="h-full font-mono bg-gradient">
+      <div className="flex flex-col justify-center pt-12" key={timePassed}>
+        <h1 className="text-center py-2 text-black xl:text-3xl ">
+          Please enter your birth date:
+        </h1>
         <div>
-          <h1 className="text-center py-2 text-amber-500 text-3xl ">
-            please enter your birth date
-          </h1>
           <form
             className="xl:flex justify-center text-center py-2"
             onSubmit={calculatetimePassed}
           >
             <div className="flex justify-center text-center">
               <select
-                className={`w-24 xl:w-40 mb-2 appearance-none outline-amber-800  hover:bg-amber-600 border-2 bg-amber-500   text-white h-8 rounded-full text-center mr-2 px-2  ${
-                  birthDate.month === ''
-                    ? 'border border-red-500 text-gray-300'
-                    : ''
-                }`}
+                className={`w-24 xl:w-40 mb-2 appearance-none outline-none     bg-[#FCE5C2]   text-amber-500 h-8 rounded-full text-center mr-2 px-2`}
                 type="number"
                 placeholder="mm"
                 value={birthDate.month}
@@ -83,33 +72,18 @@ function App() {
                 ))}
               </select>
 
-              <input
-                className={`mb-2 w-24 xl:w-40 border-2 outline-amber-800 placeholder:text-gray-300 hover:bg-amber-600 bg-amber-500 text-white h-8 rounded-full text-center mr-2 px-2 ${
-                  birthDate.day === '' ||
-                  birthDate.day < 1 ||
-                  birthDate.day > 31
-                    ? 'border-2 border-red-500'
-                    : ''
-                }`}
-                type="text"
-                inputMode="numeric"
+              <Input
                 placeholder="dd"
+                birthDate={birthDate}
                 value={birthDate.day}
                 onChange={(e) =>
                   setBirthDate({ ...birthDate, day: e.target.value })
                 }
               />
-              <input
-                className={`mb-2 w-24 xl:w-40 border-2 bg-amber-500 placeholder:text-gray-300 hover:bg-amber-600  outline-amber-800 text-white h-8 rounded-full text-center  mr-2 px-2 ${
-                  birthDate.year === '' ||
-                  birthDate.year < 1933 ||
-                  birthDate.year > 2023
-                    ? 'border-2 border-red-500'
-                    : ''
-                }`}
-                type="text"
-                inputMode="numeric"
+
+              <Input
                 placeholder="yyyy"
+                birthDate={birthDate}
                 value={birthDate.year}
                 onChange={(e) =>
                   setBirthDate({ ...birthDate, year: e.target.value })
@@ -117,12 +91,32 @@ function App() {
               />
             </div>
             <button
-              className={`xl:border-2  text-white rounded-full  xl:h-8  h-14 w-44 text-xl hover:bg-amber-600 px-6 bg-amber-500`}
+              className={`xl:border-2 shadow-xl text-white rounded-full  xl:h-8  h-8 w-44 text-md hover:bg-amber-600 px-6 bg-amber-500`}
               type="submit"
             >
-              submit
+              Submit
             </button>
           </form>
+        </div>
+        <div className="flex justify-center py-4">
+          <ModeButton
+            mode="weeks"
+            selectedMode={mode}
+            setMode={setMode}
+            label="Weeks"
+          />
+          <ModeButton
+            mode="months"
+            selectedMode={mode}
+            setMode={setMode}
+            label="Months"
+          />
+          <ModeButton
+            mode="years"
+            selectedMode={mode}
+            setMode={setMode}
+            label="Years"
+          />
         </div>
         {renderModeComponent(mode, timePassed)}
       </div>

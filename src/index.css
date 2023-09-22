@@ -2,3 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
+
+.bg-gradient {
+  background: hsla(38, 55%, 74%, 1);
+
+  background: linear-gradient(
+    90deg,
+    hsla(38, 55%, 74%, 1) 20%,
+    hsla(0, 0%, 95%, 1) 83%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(38, 55%, 74%, 1) 20%,
+    hsla(0, 0%, 95%, 1) 83%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(38, 55%, 74%, 1) 20%,
+    hsla(0, 0%, 95%, 1) 83%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E1C697", endColorstr="#F1F1F1", GradientType=1 );
+}
