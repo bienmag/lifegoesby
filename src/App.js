@@ -96,7 +96,7 @@ function App() {
               />
             </div>
             <button
-              className={`xl:border-2 shadow-xl text-white rounded-full  xl:h-8  h-8 w-44 text-md hover:bg-amber-600 px-6 bg-amber-500`}
+              className={`  shadow-xl text-white rounded-full  xl:h-8  h-8 w-44 text-md hover:bg-amber-600 px-6 bg-amber-500`}
               type="submit"
             >
               Submit
