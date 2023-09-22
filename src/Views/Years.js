@@ -33,7 +33,7 @@ function Years({ years }) {
   }
 
   return (
-    <div className=" ">
+    <div className="min-h-screen">
       {years ? (
         <p className="font-bold text-amber-800 text-center pb-4 mt-4">
           {' '}
