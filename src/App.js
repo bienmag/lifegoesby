@@ -52,12 +52,12 @@ function App() {
         </h1>
         <div>
           <form
-            className="xl:flex justify-center text-center py-2"
+            className="xl:flex justify-center text-center py-2 text-sm"
             onSubmit={calculatetimePassed}
           >
             <div className="flex justify-center text-center">
               <select
-                className={`w-24 xl:w-40 mb-2 appearance-none outline-none bg-[#FCE5C2] text-amber-500 h-8 rounded-full text-justify mr-2 px-2`}
+                className={`w-24 xl:w-40 mb-2  appearance-none outline-none bg-[#FCE5C2] text-amber-500 h-8 rounded-full text-center mr-2 px-2`}
                 type="number"
                 value={birthDate.month}
                 onChange={(e) =>
@@ -68,7 +68,7 @@ function App() {
                   <option
                     key={month.value}
                     value={month.value}
-                    className="text-justify"
+                    className="text-center bg-black"
                   >
                     {month.label}
                   </option>
