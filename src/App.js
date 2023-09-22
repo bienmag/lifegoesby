@@ -52,21 +52,26 @@ function App() {
         </h1>
         <div>
           <form
-            className="xl:flex justify-center text-center py-2"
+            className="xl:flex justify-center text-center py-2 text-sm"
             onSubmit={calculatetimePassed}
           >
             <div className="flex justify-center text-center">
               <select
-                className={`w-24 xl:w-40 mb-2 appearance-none outline-none     bg-[#FCE5C2]   text-amber-500 h-8 rounded-full text-center mr-2 px-2`}
+                className={`w-24 xl:w-40 mb-2  appearance-none outline-none bg-[#FCE5C2] text-amber-500 h-8 rounded-full text-center mr-2 px-2`}
                 type="number"
-                placeholder="mm"
                 value={birthDate.month}
+                style={{ textAlignLast: 'center' }}
                 onChange={(e) =>
                   setBirthDate({ ...birthDate, month: e.target.value })
                 }
               >
                 {monthOptions.map((month) => (
-                  <option key={month.value} value={month.value}>
+                  <option
+                    key={month.value}
+                    value={month.value}
+                    className="text-center bg-black"
+                    style={{ textAlignLast: 'center' }}
+                  >
                     {month.label}
                   </option>
                 ))}
