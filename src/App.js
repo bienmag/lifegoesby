@@ -68,7 +68,7 @@ function App() {
                   <option
                     key={month.value}
                     value={month.value}
-                    className="text-center"
+                    style={{ textAlignLast: 'center' }}
                   >
                     {month.label}
                   </option>
