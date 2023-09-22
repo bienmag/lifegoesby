@@ -57,9 +57,8 @@ function App() {
           >
             <div className="flex justify-center text-center">
               <select
-                className={`w-24 xl:w-40 mb-2 appearance-none outline-none     bg-[#FCE5C2]   text-amber-500 h-8 rounded-full text-center mr-2 px-2`}
+                className={`w-24 xl:w-40 mb-2 appearance-none outline-none bg-[#FCE5C2] text-amber-500 h-8 rounded-full text-center mr-2 px-2`}
                 type="number"
-                placeholder="mm"
                 value={birthDate.month}
                 onChange={(e) =>
                   setBirthDate({ ...birthDate, month: e.target.value })
