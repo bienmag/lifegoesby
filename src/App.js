@@ -45,7 +45,7 @@ function App() {
   }
 
   return (
-    <div className="h-full font-mono bg-gradient">
+    <div className="h-full font-mono bg-gradient min-h-screen">
       <div className="flex flex-col justify-center pt-12" key={timePassed}>
         <h1 className="text-center py-2 text-black xl:text-3xl ">
           Please enter your birth date:
